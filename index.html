@@ -360,6 +360,98 @@ body::-webkit-scrollbar {
 #introSplash.merged-auth-open{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
 #authScreen .back-btn{position:relative;z-index:20}
 </style>
+
+<style id="mergedAuthIsolationFix">
+/* Keep the merged auth view visually identical to the standalone auth page.
+   These scoped !important rules intentionally beat legacy global form styles. */
+#authScreen{overflow-x:hidden!important;overscroll-behavior:contain!important;font-weight:400!important}
+#authScreen .auth-shell,#authScreen .auth-card,#authScreen .auth-visual,#authScreen .auth-form{font-weight:400!important}
+#authScreen .auth-form{color:var(--text)!important}
+#authScreen .back-btn{font-weight:800!important;line-height:normal!important}
+#authScreen .brand{font-weight:800!important}
+#authScreen .eyebrow{font-weight:800!important}
+#authScreen .heading h1{font-weight:800!important}
+#authScreen .heading p{font-weight:400!important}
+#authScreen .mode-switch button{font-weight:800!important;line-height:normal!important}
+#authScreen .mode-switch button.active{font-weight:800!important}
+#authScreen .form-group label{
+  display:block!important;margin:0 0 6px!important;padding:0!important;
+  border:0!important;background:transparent!important;
+  color:rgba(219,234,254,.72)!important;
+  font-size:9.5px!important;font-weight:800!important;
+  text-transform:none!important;letter-spacing:normal!important;line-height:normal!important
+}
+#authScreen .input-wrap{position:relative!important}
+#authScreen .input-icon{
+  position:absolute!important;left:13px!important;top:50%!important;
+  transform:translateY(-50%)!important;width:16px!important;height:16px!important;
+  color:rgba(147,197,253,.56)!important;z-index:3!important;pointer-events:none!important
+}
+#authScreen .input-wrap input,
+#authScreen .input-wrap input[type="text"],
+#authScreen .input-wrap input[type="email"],
+#authScreen .input-wrap input[type="password"]{
+  appearance:none!important;-webkit-appearance:none!important;
+  display:block!important;width:100%!important;height:47px!important;
+  min-height:47px!important;margin:0!important;padding:0 42px 0 40px!important;
+  border:1px solid rgba(255,255,255,.12)!important;border-radius:12px!important;
+  background:rgba(255,255,255,.028)!important;background-image:none!important;
+  color:#eff6ff!important;-webkit-text-fill-color:#eff6ff!important;
+  font-family:"Plus Jakarta Sans",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  font-size:12px!important;font-weight:600!important;line-height:normal!important;
+  text-transform:none!important;letter-spacing:normal!important;
+  outline:none!important;
+  box-shadow:inset 1px 1px 0 rgba(255,255,255,.035)!important;
+  backdrop-filter:blur(10px)!important;-webkit-backdrop-filter:blur(10px)!important
+}
+#authScreen .input-wrap input::placeholder{
+  color:rgba(191,219,254,.37)!important;
+  -webkit-text-fill-color:rgba(191,219,254,.37)!important;
+  opacity:1!important
+}
+#authScreen .input-wrap input:focus{
+  border-color:rgba(191,219,254,.42)!important;
+  background:rgba(255,255,255,.045)!important;
+  color:#eff6ff!important;-webkit-text-fill-color:#eff6ff!important;
+  box-shadow:0 0 0 3px rgba(255,255,255,.035),inset 1px 1px 0 rgba(255,255,255,.05)!important
+}
+#authScreen .eye-btn{
+  z-index:4!important;font-weight:400!important;border:0!important;
+  background:transparent!important;color:rgba(147,197,253,.50)!important
+}
+#authScreen .forgot-row button{
+  border:0!important;background:none!important;color:#93c5fd!important;
+  font-size:9.5px!important;font-weight:800!important;line-height:normal!important;
+  text-transform:none!important;letter-spacing:normal!important
+}
+#authScreen .submit-btn{
+  appearance:none!important;-webkit-appearance:none!important;
+  width:100%!important;height:47px!important;min-height:47px!important;
+  margin-top:17px!important;padding:0!important;
+  border:1px solid rgba(255,255,255,.20)!important;border-radius:12px!important;
+  background:rgba(255,255,255,.065)!important;background-image:none!important;
+  color:#fff!important;font-size:11px!important;font-weight:900!important;line-height:normal!important;
+  box-shadow:0 10px 24px rgba(0,0,0,.16),inset 1px 1px 0 rgba(255,255,255,.09)!important;
+  backdrop-filter:blur(16px) saturate(130%)!important;-webkit-backdrop-filter:blur(16px) saturate(130%)!important
+}
+#authScreen .submit-btn::before,#authScreen .submit-btn::after{display:none!important;content:none!important}
+#authScreen .submit-btn:hover{
+  background:rgba(255,255,255,.095)!important;border-color:rgba(255,255,255,.28)!important;
+  box-shadow:0 12px 28px rgba(0,0,0,.19),inset 1px 1px 0 rgba(255,255,255,.11)!important
+}
+#authScreen .trust-row{font-weight:700!important}
+@media(max-width:760px){
+  #authScreen{width:100vw!important;max-width:100vw!important;padding-left:16px!important;padding-right:16px!important;overflow-x:hidden!important}
+  #authScreen .auth-shell{width:100%!important;max-width:100%!important;margin:0!important}
+  #authScreen .auth-card{width:100%!important;max-width:100%!important;margin:0!important}
+  #authScreen .auth-form{width:100%!important;max-width:100%!important}
+}
+@media(max-width:420px){
+  #authScreen{padding-left:12px!important;padding-right:12px!important}
+  #authScreen .auth-form{padding-left:18px!important;padding-right:18px!important}
+}
+</style>
+
 </head>
 <body>
 <div id="introSplash">
