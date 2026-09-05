@@ -2803,6 +2803,27 @@ body,#appContent{font-weight:650!important}
     height:12px!important;
     flex:0 0 12px!important;
   }
+
+  /* Card kabhi-kabhi ek taraf (right) shifted dikhta tha kyunki iske andar ke columns par
+     scroll-linked slide-in transform kabhi-kabhi apni beech wali position par hi atak jaata
+     tha. Ab yahan viewport-width based rule se (device-detection par depend kiye bina)
+     transform hata ke sabko force center/seedha kar diya. */
+  #introSplash #why-us{
+    transform:none!important;
+    left:auto!important;
+    right:auto!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+  #introSplash #why-us .intro-compare-col,
+  #introSplash #why-us .intro-compare-grid{
+    opacity:1!important;
+    transform:none!important;
+    filter:none!important;
+    transition:none!important;
+    left:auto!important;
+    right:auto!important;
+  }
 }
 </style>
 
@@ -4621,11 +4642,7 @@ html.is-mobile-device #introSplash .intro-orb,
 html.is-mobile-device #introSplash .ed-card-art .ed-glow,
 html.is-mobile-device #introSplash .story-orbit-rail,
 html.is-mobile-device #introSplash .story-mini-orbit,
-html.is-mobile-device #introSplash .hero-model-ring,
 html.is-mobile-device #introSplash .hero-float-card,
-html.is-mobile-device #introSplash .signal-orbit-v40,
-html.is-mobile-device #introSplash .signal-core-v40,
-html.is-mobile-device #introSplash .signal-pulse-v40,
 html.is-mobile-device #introSplash .story-flow-tracer,
 html.is-mobile-device #introSplash .story-flow-node,
 html.is-mobile-device #introSplash .story-flow-line,
@@ -4684,34 +4701,22 @@ html.is-mobile-device #introSplash #how-it-works {
   margin-top:0!important;
   padding-top:56px!important;
 }
-/* Zoom/orbit wala icon scene mobile pe already hidden tha (perf ke liye) — ab uski jagah
-   ek simple static icon seedha center me dikhado, bina kisi scroll-linked movement ke. */
+/* Zoom/orbit wala icon scene mobile pe pehle simple static icon tak simplify kar diya gaya
+   tha (perf ke liye). Ab poora globe animation — orbit rings + andar wale signal rings +
+   traveling glow line — mobile pe bhi wapas dikhaya ja raha hai, bas center me achhi tarah
+   positioned rakha hai. */
 html.is-mobile-device #introSplash .hero-morph-stage-v21 .intro-hero-model {
   position:absolute!important;
   inset:auto!important;
   left:50%!important;
-  top:20%!important;
-  transform:translate(-50%,-50%)!important;
+  top:9%!important;
+  transform:translate(-50%,-50%) scale(.42)!important;
+  transform-origin:50% 50%!important;
   width:auto!important;
   height:auto!important;
   opacity:1!important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:center!important;
   pointer-events:none!important;
   z-index:1!important;
-}
-html.is-mobile-device #introSplash .hero-morph-stage-v21 .signal-core-v40 {
-  display:flex!important;
-  align-items:center!important;
-  justify-content:center!important;
-  position:static!important;
-  left:auto!important;
-  top:auto!important;
-  margin:0!important;
-  transform:none!important;
-  width:84px!important;
-  height:84px!important;
 }
 /* "Why us" card (aur baaki scroll-reveal cards) mobile pe kabhi-kabhi apni left/right slide-in
    starting position me hi atak jaate the (observer/threshold miss ho jaata tha) — isi wajah se
@@ -4741,6 +4746,55 @@ html.is-mobile-device #introSplash #why-us .intro-compare-foot .ui-svg-icon {
   width:11px!important;
   height:11px!important;
   flex:0 0 11px!important;
+}
+</style>
+<style id="mobileGlobeAnimationRestoreV1">
+/* Hero ka globe icon — outer orbit rings, andar ke signal rings, aur unke edge pe ghoomti
+   glow line — mobilePerfFixV1 me "animation:none" ke saath band ho gaya tha. Ab yahan
+   sirf isi globe ke elements ke liye animation wapas on kar rahe hain, baaki saari
+   mobile performance optimizations (aurora, card art, story flow, etc.) waise hi band
+   rehti hain. */
+html.is-mobile-device #introSplash .hero-ring-one{
+  animation:heroRingOne 13s linear infinite!important;
+}
+html.is-mobile-device #introSplash .hero-ring-two{
+  animation:heroRingTwo 16s linear infinite reverse!important;
+}
+html.is-mobile-device #introSplash .hero-ring-three{
+  animation:heroRingThree 19s linear infinite!important;
+}
+html.is-mobile-device #introSplash .signal-core-v40{
+  animation:v40CoreBreath 4.8s ease-in-out infinite!important;
+}
+html.is-mobile-device #introSplash .signal-orbit-a-v40{
+  animation:v40OrbitA 7s linear infinite!important;
+}
+html.is-mobile-device #introSplash .signal-orbit-b-v40{
+  animation:v40OrbitB 5.6s linear infinite reverse!important;
+}
+html.is-mobile-device #introSplash .signal-orbit-c-v40{
+  animation:v40OrbitC 4.3s linear infinite!important;
+}
+html.is-mobile-device #introSplash .signal-pulse-v40{
+  animation:v40Pulse 1.9s ease-in-out infinite!important;
+}
+html.is-mobile-device #introSplash .intro-hero-model .v43-current{
+  animation:v43CurrentLoop var(--v43-dur,5s) linear infinite!important;
+  animation-delay:var(--v43-delay,0s)!important;
+  animation-direction:var(--v43-dir,normal)!important;
+}
+@media(prefers-reduced-motion:reduce){
+  html.is-mobile-device #introSplash .hero-ring-one,
+  html.is-mobile-device #introSplash .hero-ring-two,
+  html.is-mobile-device #introSplash .hero-ring-three,
+  html.is-mobile-device #introSplash .signal-core-v40,
+  html.is-mobile-device #introSplash .signal-orbit-a-v40,
+  html.is-mobile-device #introSplash .signal-orbit-b-v40,
+  html.is-mobile-device #introSplash .signal-orbit-c-v40,
+  html.is-mobile-device #introSplash .signal-pulse-v40,
+  html.is-mobile-device #introSplash .intro-hero-model .v43-current{
+    animation:none!important;
+  }
 }
 </style>
 <style id="mobileCardGapFixV1">
@@ -4812,18 +4866,14 @@ html.is-mobile-device #introSplash #why-us .intro-compare-foot .ui-svg-icon {
     padding:6px 6px 16px!important;
     scroll-snap-type:x mandatory!important;
     -webkit-overflow-scrolling:touch!important;
-    scrollbar-width:thin!important;
+    scrollbar-width:none!important;
   }
   #introSplash #how-it-works .story-card-stack::-webkit-scrollbar,
   #introSplash #features .story-card-stack::-webkit-scrollbar,
   #introSplash #subscriptions .story-card-stack::-webkit-scrollbar{
-    height:5px!important;
-  }
-  #introSplash #how-it-works .story-card-stack::-webkit-scrollbar-thumb,
-  #introSplash #features .story-card-stack::-webkit-scrollbar-thumb,
-  #introSplash #subscriptions .story-card-stack::-webkit-scrollbar-thumb{
-    background:rgba(134,239,173,.35)!important;
-    border-radius:999px!important;
+    display:none!important;
+    width:0!important;
+    height:0!important;
   }
   #introSplash #how-it-works .story-card,
   #introSplash #features .story-card,
@@ -4867,6 +4917,24 @@ html.is-mobile-device #introSplash #why-us .intro-compare-foot .ui-svg-icon {
     margin-right:auto!important;
     width:auto!important;
   }
+}
+</style>
+<style id="mobileScrollCueSlideV1">
+/* "Scroll through the flow / system / plans" cue text: on mobile, nudge it back and
+   forth horizontally so it visibly slides — a clear visual hint that the cards below
+   are a horizontal swipe/scroll, not a static stack. Desktop is untouched. */
+@media(max-width:760px){
+  #introSplash .story-scroll-cue{
+    animation:storyCueTextSlide 1.7s ease-in-out infinite!important;
+    will-change:transform;
+  }
+}
+@keyframes storyCueTextSlide{
+  0%,100%{transform:translateX(0)}
+  50%{transform:translateX(9px)}
+}
+@media(prefers-reduced-motion:reduce){
+  #introSplash .story-scroll-cue{animation:none!important}
 }
 </style>
 </body>
