@@ -4655,8 +4655,92 @@ html.is-mobile-device #introSplash .intro-mini-curve path {
   stroke-dashoffset:0!important;
 }
 /* hero heading: "Real growth, delivered" ek line me, "organically" alag/niche line pe */
+/* asli bug: .hero-copy-v21 .intro-h1 ka font-size clamp(48px,...) tha — 48px floor mobile pe bahut bada hai,
+   isliye "Real growth, delivered" khud hi 2-3 lines me toot raha tha. Ab mobile ke liye font-size chhota
+   kiya taaki ye poora ek hi line me aa jaye, aur "organically" alag line pe rahe. */
+html.is-mobile-device #introSplash .hero-copy-v21 .intro-h1 {
+  font-size:clamp(24px,7.6vw,34px)!important;
+  line-height:1.18!important;
+  letter-spacing:-.4px!important;
+  white-space:normal!important;
+}
 html.is-mobile-device #introSplash .intro-h1 em {
   display:block!important;
+  margin-top:2px!important;
+}
+@media(max-width:360px){
+  html.is-mobile-device #introSplash .hero-copy-v21 .intro-h1 {
+    font-size:clamp(22px,7.2vw,28px)!important;
+  }
+}
+/* left-se-right/scroll-jack wala "morph" scene: mobile pe iski wajah se hero section 145vh tak
+   scroll "wait" karwata tha (sticky pin hoke) is se pehle ki neeche wala section aaye.
+   Ab section ki extra reserved height hata di — content apni normal ~100vh jagah leta hai,
+   aur scroll seedha directly next section me chala jaata hai, koi wait nahi. */
+html.is-mobile-device #introSplash .intro-hero.hero-morph-v21 {
+  min-height:auto!important;
+}
+html.is-mobile-device #introSplash #how-it-works {
+  margin-top:0!important;
+  padding-top:56px!important;
+}
+/* Zoom/orbit wala icon scene mobile pe already hidden tha (perf ke liye) — ab uski jagah
+   ek simple static icon seedha center me dikhado, bina kisi scroll-linked movement ke. */
+html.is-mobile-device #introSplash .hero-morph-stage-v21 .intro-hero-model {
+  position:absolute!important;
+  inset:auto!important;
+  left:50%!important;
+  top:20%!important;
+  transform:translate(-50%,-50%)!important;
+  width:auto!important;
+  height:auto!important;
+  opacity:1!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  pointer-events:none!important;
+  z-index:1!important;
+}
+html.is-mobile-device #introSplash .hero-morph-stage-v21 .signal-core-v40 {
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  position:static!important;
+  left:auto!important;
+  top:auto!important;
+  margin:0!important;
+  transform:none!important;
+  width:84px!important;
+  height:84px!important;
+}
+/* "Why us" card (aur baaki scroll-reveal cards) mobile pe kabhi-kabhi apni left/right slide-in
+   starting position me hi atak jaate the (observer/threshold miss ho jaata tha) — isi wajah se
+   card side me shifted dikhta tha. Ab mobile pe reveal-transform hata ke sabko hamesha apni
+   final (seedhi, center) position me force kar diya — koi sideways shift nahi hoga. */
+html.is-mobile-device #introSplash .intro-scroll-reveal {
+  opacity:1!important;
+  filter:none!important;
+  transform:none!important;
+  transition:none!important;
+}
+/* "Why us" card ke neeche wali line (orders delivered / refund protection / 99.9% approval rate)
+   card se bahar/side me chali jaati thi — ab wrap hone diya aur size chota kiya taaki teeno
+   hamesha card ke andar, center me hi rahein. */
+html.is-mobile-device #introSplash #why-us .intro-compare-foot {
+  flex-wrap:wrap!important;
+  justify-content:center!important;
+  gap:6px 14px!important;
+  padding:12px 14px 14px!important;
+  font-size:clamp(8px,2.6vw,10px)!important;
+}
+html.is-mobile-device #introSplash #why-us .intro-compare-foot > span {
+  white-space:normal!important;
+  text-align:left!important;
+}
+html.is-mobile-device #introSplash #why-us .intro-compare-foot .ui-svg-icon {
+  width:11px!important;
+  height:11px!important;
+  flex:0 0 11px!important;
 }
 </style>
 <style id="mobileCardGapFixV1">
@@ -4702,6 +4786,86 @@ html.is-mobile-device #introSplash .intro-h1 em {
   .premium-footer-bottom>div{
     flex-wrap:wrap!important;
     justify-content:flex-end!important;
+  }
+}
+</style>
+<style id="mobileStoryCardSliderV1">
+/* "How it works" / "Features" / "Subscriptions" cards: on desktop these animate in from the
+   right while scrolling. On mobile that animation is already disabled and the cards just stack
+   one under another. This block turns that mobile stack into a horizontal swipeable slider
+   instead — cards sit in a single row, one after another, and the user swipes/scrolls right to
+   see the rest. Desktop layout (max-width above 760px) is completely untouched. */
+@media(max-width:760px){
+  #introSplash #how-it-works .story-card-stack,
+  #introSplash #features .story-card-stack,
+  #introSplash #subscriptions .story-card-stack{
+    display:flex!important;
+    flex-direction:row!important;
+    flex-wrap:nowrap!important;
+    align-items:stretch!important;
+    overflow-x:auto!important;
+    overflow-y:visible!important;
+    gap:14px!important;
+    width:100%!important;
+    max-width:100%!important;
+    margin:0!important;
+    padding:6px 6px 16px!important;
+    scroll-snap-type:x mandatory!important;
+    -webkit-overflow-scrolling:touch!important;
+    scrollbar-width:thin!important;
+  }
+  #introSplash #how-it-works .story-card-stack::-webkit-scrollbar,
+  #introSplash #features .story-card-stack::-webkit-scrollbar,
+  #introSplash #subscriptions .story-card-stack::-webkit-scrollbar{
+    height:5px!important;
+  }
+  #introSplash #how-it-works .story-card-stack::-webkit-scrollbar-thumb,
+  #introSplash #features .story-card-stack::-webkit-scrollbar-thumb,
+  #introSplash #subscriptions .story-card-stack::-webkit-scrollbar-thumb{
+    background:rgba(134,239,173,.35)!important;
+    border-radius:999px!important;
+  }
+  #introSplash #how-it-works .story-card,
+  #introSplash #features .story-card,
+  #introSplash #subscriptions .subscription-card.story-card{
+    flex:0 0 auto!important;
+    width:82vw!important;
+    max-width:320px!important;
+    min-width:250px!important;
+    scroll-snap-align:center!important;
+    align-self:stretch!important;
+    margin:0!important;
+  }
+  #introSplash #how-it-works .story-card:first-child,
+  #introSplash #features .story-card:first-child,
+  #introSplash #subscriptions .subscription-card.story-card:first-child{
+    margin-left:2px!important;
+  }
+  #introSplash #how-it-works .story-card:last-child,
+  #introSplash #features .story-card:last-child,
+  #introSplash #subscriptions .subscription-card.story-card:last-child{
+    margin-right:2px!important;
+  }
+  #introSplash #how-it-works .story-card,
+  #introSplash #features .story-card{
+    grid-template-columns:1fr!important;
+    min-height:235px!important;
+  }
+}
+@media(max-width:900px){
+  /* "Scroll through the flow/system/plans" cue: pin it to the left edge on mobile */
+  #introSplash .story-left{
+    align-items:flex-start!important;
+    text-align:left!important;
+  }
+  #introSplash .story-scroll-cue{
+    display:inline-flex!important;
+    justify-content:flex-start!important;
+    align-self:flex-start!important;
+    text-align:left!important;
+    margin-left:0!important;
+    margin-right:auto!important;
+    width:auto!important;
   }
 }
 </style>
