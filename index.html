@@ -2769,10 +2769,39 @@ body,#appContent{font-weight:650!important}
     font-size:12.5px!important;
   }
 
+  /* "This panel" (win) column ka text lamba hone se wrap ho raha tha — font chota karke ek line me fit kiya */
+  #introSplash #why-us .intro-compare-col.win .compare-list-svg li{
+    gap:7px!important;
+  }
+  #introSplash #why-us .intro-compare-col.win .compare-list-svg li > span:last-child{
+    font-size:clamp(8.5px,2.85vw,10.5px)!important;
+    line-height:1.42!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+  #introSplash #why-us .intro-compare-col.win .ui-svg-icon{
+    width:14px!important;
+    height:14px!important;
+    flex:0 0 14px!important;
+  }
+
+  /* neeche wala "orders delivered / refund protection / 99.9% approval rate" — 3 items ek hi line me, desktop jaisa */
   #introSplash #why-us .intro-compare-foot{
-    justify-content:flex-start!important;
-    gap:14px!important;
-    padding:14px 18px 16px!important;
+    flex-wrap:nowrap!important;
+    justify-content:space-between!important;
+    gap:8px!important;
+    padding:14px 16px 16px!important;
+    font-size:clamp(7.5px,2.4vw,9.5px)!important;
+  }
+  #introSplash #why-us .intro-compare-foot > span{
+    gap:5px!important;
+    white-space:nowrap!important;
+  }
+  #introSplash #why-us .intro-compare-foot .ui-svg-icon{
+    width:12px!important;
+    height:12px!important;
+    flex:0 0 12px!important;
   }
 }
 </style>
@@ -3065,11 +3094,21 @@ body,#appContent{font-weight:650!important}
     if(isCard) el.classList.add('intro-tilt-card');
   });
   root.classList.add('intro-anim-ready');
+  if(window.__isMobileDevice){
+    revealTargets.forEach(function(el){
+      if(!el) return;
+      el.style.opacity=1;
+      el.style.transform='none';
+      el.style.filter='none';
+      el.classList.add('intro-visible');
+    });
+  }
 
   var REVEAL_SPAN=130;    // px of scroll needed to fully reveal one item
   var REVEAL_STAGGER=55;  // extra px of scroll delay per item in its group
   function clamp01(v){return v<0?0:v>1?1:v;}
   function updateReveals(){
+    if(window.__isMobileDevice) return;
     var vh=root.clientHeight||window.innerHeight||800;
     var entryLine=vh*0.94;
     revealTargets.forEach(function(el){
@@ -3147,8 +3186,16 @@ body,#appContent{font-weight:650!important}
   var raf=0;
   function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
   function ease(t){return 1-Math.pow(1-clamp(t,0,1),3);}
+  if(window.__isMobileDevice){
+    cards.forEach(function(card){
+      card.style.transform='none';
+      card.style.opacity='1';
+      card.style.filter='none';
+    });
+  }
   function update(){
     raf=0;
+    if(window.__isMobileDevice) return;
     var vh=root.clientHeight||window.innerHeight;
     cards.forEach(function(card,i){
       var r=card.getBoundingClientRect();
@@ -4568,6 +4615,7 @@ if (orders) {
 
 <style id="mobilePerfFixV1">
 /* Real mobile devices ke liye heavy decorative effects off — lag fix. Layout/desktop-lock untouched. */
+html.is-mobile-device #introSplash .ed-card-art,
 html.is-mobile-device #introSplash .intro-aurora,
 html.is-mobile-device #introSplash .intro-orb,
 html.is-mobile-device #introSplash .ed-card-art .ed-glow,
@@ -4601,6 +4649,60 @@ html.is-mobile-device #introSplash,
 html.is-mobile-device #introSplash * {
   backdrop-filter:none!important;
   -webkit-backdrop-filter:none!important;
+}
+/* hero ke upar wala mini line-graph: uska draw-in sirf animation se hota tha, animation band karne se wo hidden reh gaya tha — ab force visible */
+html.is-mobile-device #introSplash .intro-mini-curve path {
+  stroke-dashoffset:0!important;
+}
+/* hero heading: "Real growth, delivered" ek line me, "organically" alag/niche line pe */
+html.is-mobile-device #introSplash .intro-h1 em {
+  display:block!important;
+}
+</style>
+<style id="mobileCardGapFixV1">
+@media(max-width:900px){
+  #introSplash .story-card-stack{gap:34px!important}
+}
+@media(max-width:760px){
+  #introSplash .story-card-stack{gap:26px!important}
+  #introSplash .story-right{padding:2vh 0 3vh!important}
+}
+@media(max-width:560px){
+  #introSplash .story-card-stack{gap:20px!important}
+  #introSplash .story-right{padding:1vh 0 2vh!important}
+}
+@media(max-width:900px){
+  #introSplash #subscriptions .story-card-stack{gap:18px!important}
+}
+</style>
+<style id="footerMobileRightFixV1">
+@media(max-width:650px){
+  #introSplash .premium-footer-bottom,
+  .premium-footer-bottom{
+    display:flex!important;
+    flex-direction:row!important;
+    flex-wrap:wrap!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:10px!important;
+    text-align:left!important;
+  }
+  #introSplash .premium-footer-bottom>div,
+  .premium-footer-bottom>div{
+    margin-left:auto!important;
+    display:flex!important;
+    flex-wrap:wrap!important;
+    justify-content:flex-end!important;
+    align-items:center!important;
+    gap:12px!important;
+  }
+}
+@media(max-width:430px){
+  #introSplash .premium-footer-bottom>div,
+  .premium-footer-bottom>div{
+    flex-wrap:wrap!important;
+    justify-content:flex-end!important;
+  }
 }
 </style>
 </body>
