@@ -2780,7 +2780,6 @@ div#introSplash.is-mobile-device .intro-primary::after{animation:pgIntro_introBu
 #introSplash>.intro-scroll-progress{display:none!important}
 </style>
 <style id="appIntroPlatinumPalette">
-/* Intro platinum palette. Active only inside the open app in dark mode. */
 html[data-theme="dark"] body.main-app-open .dash-card-emerald:not(:where(#introSplash,#introSplash *,#licenseOverlay,#licenseOverlay *)){--acc-radial:rgba(137,144,159,0.18);--acc-border:rgba(137,144,159,0.35);--acc-glow:rgba(137,144,159,0.13);}
 html[data-theme="dark"] body.main-app-open .dash-card-amber:not(:where(#introSplash,#introSplash *,#licenseOverlay,#licenseOverlay *)){--acc-radial:rgba(251,191,36,.18);--acc-border:rgba(251,191,36,.35);--acc-glow:rgba(251,191,36,.13);}
 html[data-theme="dark"] body.main-app-open .dash-card-violet:not(:where(#introSplash,#introSplash *,#licenseOverlay,#licenseOverlay *)){--acc-radial:rgba(137,144,159,0.18);--acc-border:rgba(137,144,159,0.35);--acc-glow:rgba(137,144,159,0.13);}
@@ -3682,7 +3681,6 @@ html[data-theme="dark"] body.main-app-open [style="width:100%;padding:10px;margi
 html[data-theme="dark"] body.main-app-open [style="background:linear-gradient(160deg,#ffffff,#fff5f5 55%,#ffffff);border:1px solid rgba(239,68,68,.3);border-radius:16px;padding:20px 18px 16px;max-width:260px;width:88%;text-align:center;box-shadow:0 22px 55px rgba(20,40,80,.18)"]:not(:where(#introSplash *,#licenseOverlay *)){background-image:linear-gradient(160deg, #141518, #141518 55%, #141518) !important;}
 html[data-theme="dark"] body.main-app-open [style="font-size:14px;font-weight:800;color:#1a2b22;margin-bottom:12px;letter-spacing:-.2px"]:not(:where(#introSplash *,#licenseOverlay *)){color:#222325 !important;}
 html[data-theme="dark"] body.main-app-open [style="width:100%;padding:10px;margin-top:8px;border:none;background:transparent;color:#8b9890;font-weight:700;font-size:12px;cursor:pointer"]:not(:where(#introSplash *,#licenseOverlay *)){color:#89909f !important;}
-/* Final surface hierarchy uses the actual intro background and glass colours. */
 html[data-theme="dark"]:has(body.main-app-open) {background:#050506 !important}
 html[data-theme="dark"] body.main-app-open {
   --lt-bg:#050506;--lt-bg2:#111213;--lt-card:#141518;--lt-border:#2a2b2f;
@@ -3735,7 +3733,6 @@ html[data-theme="dark"] body.main-app-open .legs-side-panel {
 html[data-theme="dark"] body.main-app-open .app-side-wallet-label {color:#b3b8c2 !important}
 html[data-theme="dark"] body.main-app-open #appContent label {color:#999ba3 !important}
 
-/* Keep the header wordmark legible throughout its former shimmer cycle. */
 html[data-theme="dark"] body.main-app-open #appContent .brand-spider-icon path[stroke="#111827"] {
   stroke:#111827 !important;
 }
@@ -3747,7 +3744,6 @@ html[data-theme="dark"] body.main-app-open #appContent .topbar > .logo > span:la
   color:#f3f4f6 !important;text-shadow:none !important;animation:none !important;
 }
 
-/* Manual Boost is a visible secondary action in either theme. */
 body.main-app-open #appContent .btn-manual-boost-toggle {
   background:#e8edf3 !important;border:1px solid #8090a0 !important;
   color:#27313f !important;-webkit-text-fill-color:#27313f !important;
@@ -3771,7 +3767,6 @@ html[data-theme="dark"] body.main-app-open #appContent .btn-manual-boost-toggle:
   outline-color:#b3b8c2 !important;
 }
 
-/* Expanded Manual Boost follows the app's platinum palette in dark mode. */
 html[data-theme="dark"] body.main-app-open #appContent #manualBoostBox {
   background:linear-gradient(145deg,#1c1e23,#111214) !important;
   border-color:rgba(179,184,194,.28) !important;
@@ -3812,8 +3807,6 @@ html[data-theme="dark"] body.main-app-open #manualBoostBox :is(button,input):foc
   outline:2px solid #b3b8c2 !important;outline-offset:3px !important;
 }
 
-
-/* Reuse the intro globe artwork and motion inside the app hero. */
 body.main-app-open #organicSiteHero .app-hero-globe{position:absolute;top:0px;right:0px;bottom:0px;left:0px;z-index:-1;pointer-events:none;transform-style:preserve-3d;perspective:1000px;}
 body.main-app-open #organicSiteHero .hero-model-ring{position:absolute;left:50%;top:45%;border-top-left-radius:50%;border-top-right-radius:50%;border-bottom-right-radius:50%;border-bottom-left-radius:50%;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-top-style:solid;border-right-style:solid;border-bottom-style:solid;border-left-style:solid;border-top-color:rgba(15, 23, 42, 0.09);border-right-color:rgba(15, 23, 42, 0.09);border-bottom-color:rgba(15, 23, 42, 0.09);border-left-color:rgba(15, 23, 42, 0.09);border-image-source:none;border-image-slice:100%;border-image-width:1;border-image-outset:0;border-image-repeat:stretch;box-shadow:rgba(255, 255, 255, 0.58) 0px 0px 0px 1px inset;transform-style:preserve-3d;}
 body.main-app-open #organicSiteHero .hero-ring-one{width:520px;height:220px;margin-top:-110px;margin-right:0px;margin-bottom:0px;margin-left:-260px;transform:rotateX(67deg) rotateZ(8deg);animation-duration:13s;animation-timing-function:linear;animation-delay:0s;animation-iteration-count:infinite;animation-direction:normal;animation-fill-mode:none;animation-play-state:running;animation-name:pgIntro_heroRingOne;animation-timeline:auto;animation-range-start:normal;animation-range-end:normal;}
@@ -3875,7 +3868,6 @@ body.main-app-open #organicSiteHero .app-hero-globe .signal-core-v40 > .v43-core
 @media (prefers-reduced-motion: reduce) {
 body.main-app-open #organicSiteHero .app-hero-globe .v43-current{animation-duration:auto !important;animation-timing-function:ease !important;animation-delay:0s !important;animation-iteration-count:1 !important;animation-direction:normal !important;animation-fill-mode:none !important;animation-play-state:running !important;animation-name:none !important;animation-timeline:auto !important;animation-range-start:normal !important;animation-range-end:normal !important;}
 }
-/* The sidebar upgrade action uses the same platinum treatment in both themes. */
 html body.main-app-open #appContent .app-side-upgrade-card {
   background:linear-gradient(135deg,#1f2022,#424853) !important;
   border-color:rgba(137,144,159,.3) !important;color:#fff !important;
@@ -3886,20 +3878,34 @@ html body.main-app-open #appContent .app-side-upgrade-card:hover {
 }
 html body.main-app-open #appContent .app-side-upgrade-card .upgrade-copy b {color:#fff !important}
 html body.main-app-open #appContent .app-side-upgrade-card .upgrade-copy small {color:#b3b8c2 !important}
+html body.main-app-open #appContent .app-side-upgrade-card .upgrade-icon {
+  background:rgba(137,144,159,.14) !important;border:1px solid rgba(137,144,159,.3) !important;box-shadow:none !important;
+}
+html body.main-app-open #appContent .app-side-upgrade-card .upgrade-icon svg {
+  stroke:#b3b8c2 !important;
+}
 
-/* Tier accents come from the existing plan class, so account changes stay live. */
 html body.main-app-open #appContent #organicSiteHero {--hero-tier:137,144,159;--hero-ink:66,72,83}
 html body.main-app-open #appContent #organicSiteHero.plan-member {--hero-tier:148,163,184;--hero-ink:71,85,105}
 html body.main-app-open #appContent #organicSiteHero.plan-regular {--hero-tier:96,165,250;--hero-ink:37,99,235}
 html body.main-app-open #appContent #organicSiteHero.plan-premium {--hero-tier:74,222,128;--hero-ink:22,163,74}
 html body.main-app-open #appContent #organicSiteHero.plan-elite {--hero-tier:248,113,113;--hero-ink:220,38,38}
 html body.main-app-open #appContent #organicSiteHero {
-  height:220px !important;min-height:220px !important;padding:0 !important;color-scheme:dark;color:#ecedee !important;
+  height:220px !important;min-height:220px !important;padding:0 !important;color-scheme:light;color:#17231b !important;
   isolation:isolate;position:relative !important;overflow:hidden !important;
-  background:radial-gradient(ellipse at 50% 68%,rgba(var(--hero-tier),.17),transparent 61%),linear-gradient(120deg,rgba(255,255,255,.58),rgba(255,255,255,.16) 52%,rgba(255,255,255,.34)) !important;
-  border:1px solid rgba(var(--hero-ink),.27) !important;
-  box-shadow:inset 1px 1px 0 rgba(255,255,255,.85),inset 0 -1px 0 rgba(255,255,255,.25),0 12px 30px rgba(var(--hero-ink),.09) !important;
-  backdrop-filter:blur(22px) saturate(135%) !important;-webkit-backdrop-filter:blur(22px) saturate(135%) !important;
+  background:linear-gradient(135deg,rgba(228,231,235,.60),rgba(196,201,209,.42) 50%,rgba(168,174,184,.50)) !important;
+  border:1px solid rgba(255,255,255,.65) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.8),
+    inset 0 -1px 0 rgba(120,126,138,.25),
+    0 12px 32px rgba(60,66,78,.20) !important;
+  backdrop-filter:blur(20px) saturate(160%) !important;-webkit-backdrop-filter:blur(20px) saturate(160%) !important;
+}
+html:not([data-theme="dark"]) body.main-app-open #appContent #organicSiteHero .app-hero-globe {
+  transform:scale(.64) !important;
+}
+html[data-theme="dark"] body.main-app-open #appContent #organicSiteHero {
+  color-scheme:dark;color:#ecedee !important;
 }
 html[data-theme="dark"] body.main-app-open #appContent #organicSiteHero {
   background:radial-gradient(ellipse at 50% 68%,rgba(var(--hero-tier),.105),transparent 61%),linear-gradient(120deg,rgba(241,242,244,.065),rgba(160,166,179,.018) 52%,rgba(9,10,12,.11)),#090a0c !important;
@@ -3926,6 +3932,23 @@ html body.main-app-open #appContent #organicSiteHero .v43-current {stroke:rgb(va
 html body.main-app-open #appContent #organicSiteHero .v43-current {stroke:#f6f7f8 !important;filter:drop-shadow(0 0 3px rgba(var(--hero-tier),.85)) !important}
 html body.main-app-open #appContent #organicSiteHero .signal-pulse-v40 {background:rgb(var(--hero-ink)) !important;box-shadow:0 0 12px rgba(var(--hero-tier),.7) !important}
 html body.main-app-open #appContent #organicSiteHero .signal-pulse-v40 {background:#f4f5f7 !important}
+html:not([data-theme="dark"]) body.main-app-open #appContent #organicSiteHero .hero-model-ring,
+html:not([data-theme="dark"]) body.main-app-open #appContent #organicSiteHero .signal-core-v40 {
+  border-color:rgba(var(--hero-tier),1) !important;
+}
+html:not([data-theme="dark"]) body.main-app-open #appContent #organicSiteHero .signal-core-v40 {
+  background:radial-gradient(circle at 34% 28%,rgba(255,255,255,1),transparent 26%),radial-gradient(circle,rgba(var(--hero-tier),1),rgba(var(--hero-tier),.45) 72%,transparent 73%) !important;
+  box-shadow:0 0 26px rgba(var(--hero-tier),.9) !important;
+}
+html:not([data-theme="dark"]) body.main-app-open #appContent #organicSiteHero .signal-orbit-v40 {
+  border-color:rgba(var(--hero-tier),1) !important;
+}
+html:not([data-theme="dark"]) body.main-app-open #appContent #organicSiteHero .v43-current {
+  stroke:rgb(var(--hero-tier)) !important;filter:drop-shadow(0 0 5px rgba(var(--hero-tier),1)) !important;
+}
+html:not([data-theme="dark"]) body.main-app-open #appContent #organicSiteHero .signal-pulse-v40 {
+  background:#ffffff !important;box-shadow:0 0 6px #ffffff,0 0 22px rgba(var(--hero-tier),1) !important;
+}
 @media(max-width:560px){
   html body.main-app-open #appContent #organicSiteHero {height:180px !important;min-height:180px !important}
   html body.main-app-open #appContent #organicSiteHero .app-hero-globe {transform:scale(.40) !important}
@@ -3935,8 +3958,6 @@ html body.main-app-open #appContent #organicSiteHero .signal-pulse-v40 {backgrou
   html body.main-app-open #appContent #organicSiteHero .app-hero-globe * {animation:none !important}
 }
 
-
-/* A small lift to the page backdrop only; component colours stay unchanged. */
 html[data-theme="dark"]:has(body.main-app-open) {background:#14161a !important}
 html[data-theme="dark"] body.main-app-open {
   background:radial-gradient(900px 640px at 18% 18%,rgba(103,111,128,.14),transparent 66%),radial-gradient(880px 620px at 83% 48%,rgba(82,89,103,.12),transparent 68%),radial-gradient(760px 560px at 48% 86%,rgba(137,144,159,.055),transparent 70%),linear-gradient(180deg,#191b20 0%,#15171b 46%,#121418 100%) !important;
