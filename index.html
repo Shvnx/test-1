@@ -610,15 +610,33 @@ body{padding:12px!important}
 #licenseCard:before{inset:0;border-radius:22px;pointer-events:none}
 #licenseCard input{border-color:rgba(255,255,255,.12)!important}
 #licenseCard #licenseSubmitBtn{border-radius:11px!important}
-#licenseOverlay{position:fixed!important;inset:0!important;z-index:9999!important;display:flex;align-items:center;justify-content:center;padding:28px;background:radial-gradient(circle at 22% 20%,rgba(34,197,94,.10),transparent 28%),radial-gradient(circle at 82% 82%,rgba(16,185,129,.09),transparent 30%),linear-gradient(180deg,#fbfdfb 0%,#f3fbf6 46%,#eaf8ef 100%)!important;overflow:auto!important}
-#licenseOverlay:before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.42;background-image:radial-gradient(circle at 1px 1px,rgba(22,101,52,.10) 1px,transparent 0);background-size:28px 28px;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.30),transparent 70%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.30),transparent 70%)}
+#licenseOverlay{position:fixed!important;inset:0!important;z-index:9999!important;display:flex;align-items:center;justify-content:center;padding:28px;background:radial-gradient(circle at 22% 20%,rgba(34,197,94,.14),transparent 32%),radial-gradient(circle at 82% 82%,rgba(16,185,129,.11),transparent 34%),linear-gradient(180deg,#0d100e 0%,#0a0c0b 55%,#070908 100%)!important;overflow:auto!important}
+#licenseOverlay:before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.30;background-image:radial-gradient(circle at 1px 1px,rgba(134,239,172,.14) 1px,transparent 0);background-size:28px 28px;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.30),transparent 70%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.30),transparent 70%)}
 #licenseBgVideo{display:none!important}
 #licenseOverlayDim{display:none!important}
-#licenseCard{position:relative!important;z-index:2!important;width:min(100%,430px)!important;max-width:430px!important;background:rgba(255,255,255,.94)!important;border:1px solid #dde9e1!important;border-radius:24px!important;padding:30px 30px 24px!important;color:#122017!important;box-shadow:0 28px 80px rgba(30,78,49,.13),0 4px 18px rgba(15,23,42,.05)!important;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+#licenseCard{position:relative!important;z-index:2!important;width:min(100%,430px)!important;max-width:430px!important;background:linear-gradient(155deg,rgba(255,255,255,.10),rgba(255,255,255,.03))!important;border:1px solid rgba(255,255,255,.16)!important;border-radius:24px!important;padding:30px 30px 24px!important;color:#f1f5f2!important;box-shadow:0 28px 80px rgba(0,0,0,.55),0 4px 18px rgba(0,0,0,.30),inset 0 1px 0 rgba(255,255,255,.08)!important;backdrop-filter:blur(26px) saturate(150%);-webkit-backdrop-filter:blur(26px) saturate(150%)}
+#licenseCard .login-brand,#licenseCard .login-heading-wrap h2{color:#f1f5f2!important}
+#licenseCard .login-heading-wrap p{color:rgba(241,245,242,.62)!important}
+#licenseCard .login-form-group label{color:rgba(241,245,242,.78)!important}
+#licenseCard .login-field-icon{color:rgba(241,245,242,.42)!important}
+#licenseCard .login-back-btn{color:rgba(241,245,242,.62)!important}
+#licenseCard .login-back-btn:hover{color:#4ade80!important}
+#licenseCard .login-eyebrow{background:rgba(74,222,128,.14)!important;border:1px solid rgba(74,222,128,.30)!important;color:#4ade80!important}
+#licenseCard .auth-mode-switch{background:rgba(255,255,255,.05)!important;border:1px solid rgba(255,255,255,.12)!important}
+#licenseCard .auth-mode-switch button{color:rgba(241,245,242,.55)!important}
+#licenseCard .auth-mode-switch button.active{background:rgba(255,255,255,.10)!important;color:#4ade80!important}
+#licenseCard .auth-field-hint{color:rgba(241,245,242,.48)!important}
+#licenseCard .password-eye-btn{color:rgba(241,245,242,.55)!important}
+#licenseCard .password-eye-btn:hover{background:rgba(255,255,255,.08)!important;color:#4ade80!important}
+#licenseCard .login-trust-row{color:rgba(241,245,242,.48)!important;border-top:1px solid rgba(255,255,255,.10)!important}
 #licenseCard:before{content:'';position:absolute;left:24px;right:24px;top:0;height:1px;background:linear-gradient(90deg,transparent,#7bd99b,transparent)}
 .login-brand{display:flex;align-items:center;justify-content:center;gap:9px;font-size:15px;font-weight:900;color:#15231a;margin-bottom:27px}
-.login-brand-icon{width:31px;height:31px;display:inline-flex}
+.login-brand-icon{width:31px;height:31px;display:inline-flex;position:relative;overflow:hidden;border-radius:50%;clip-path:circle(43.75% at 50% 50%);-webkit-clip-path:circle(43.75% at 50% 50%)}
 .login-brand-icon svg{width:100%;height:100%;display:block}
+.login-brand-icon::after{content:'';position:absolute;top:-60%;left:-70%;width:45%;height:220%;background:linear-gradient(100deg,transparent 0%,rgba(0,0,0,.85) 50%,transparent 100%);transform:rotate(18deg);animation:loginBrandIconShine 3.2s ease-in-out infinite;pointer-events:none}
+@keyframes loginBrandIconShine{0%{left:-70%}55%{left:140%}100%{left:140%}}
+.login-brand-text{position:relative;display:inline-block}
+.login-brand-text::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;height:100%;background:linear-gradient(100deg,transparent 0%,transparent 42%,rgba(0,0,0,.85) 50%,transparent 58%,transparent 100%);background-size:260% 100%;background-position:-160% 0;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;mix-blend-mode:normal;animation:pgIntro_builtTagShineLTR 3.2s linear infinite;pointer-events:none}
 .login-heading-wrap{text-align:left;margin-bottom:23px}
 .login-eyebrow{display:inline-flex;align-items:center;gap:6px;padding:5px 8px;border-radius:999px;background:#edf9f1;border:1px solid #d7f0df;color:#168346;font-size:8.5px;font-weight:800;letter-spacing:.25px;text-transform:uppercase;margin-bottom:12px}
 .login-mini-icon{width:12px;height:12px;display:inline-flex}
@@ -629,9 +647,9 @@ body{padding:12px!important}
 .login-form-group label{display:block!important;margin:0 0 6px!important;color:#39483f!important;font-size:9.5px!important;font-weight:800!important;letter-spacing:.15px!important;text-transform:none!important}
 .login-input-wrap{position:relative}
 .login-field-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:#8a9b90;pointer-events:none}
-#licenseCard input{width:100%!important;height:46px!important;padding:0 14px 0 40px!important;margin:0!important;border:1px solid #dfe7e2!important;border-radius:12px!important;background:#fbfcfb!important;color:#18251d!important;-webkit-text-fill-color:#18251d!important;font-size:12px!important;font-weight:600!important;box-shadow:0 1px 2px rgba(15,23,42,.02)!important}
-#licenseCard input::placeholder{color:#a7b1aa!important;-webkit-text-fill-color:#a7b1aa!important}
-#licenseCard input:focus{outline:none!important;border-color:#61c987!important;background:#fff!important;box-shadow:0 0 0 4px rgba(34,197,94,.09)!important}
+#licenseCard input{width:100%!important;height:46px!important;padding:0 14px 0 40px!important;margin:0!important;border:1px solid rgba(255,255,255,.14)!important;border-radius:12px!important;background:rgba(255,255,255,.05)!important;color:#f1f5f2!important;-webkit-text-fill-color:#f1f5f2!important;font-size:12px!important;font-weight:600!important;box-shadow:0 1px 2px rgba(0,0,0,.15)!important}
+#licenseCard input::placeholder{color:rgba(241,245,242,.40)!important;-webkit-text-fill-color:rgba(241,245,242,.40)!important}
+#licenseCard input:focus{outline:none!important;border-color:#61c987!important;background:rgba(255,255,255,.08)!important;box-shadow:0 0 0 4px rgba(34,197,94,.14)!important}
 #licenseOtpInput{letter-spacing:3px!important}
 .login-otp-actions{display:flex;align-items:center;justify-content:space-between;margin:-2px 1px 2px}
 .login-otp-actions button{border:0;background:none;color:#168346;font-size:9px;font-weight:800;cursor:pointer;padding:4px 0}
@@ -1418,7 +1436,7 @@ body{background-color:#eefcf3!important}
 :where(#introSplash) .intro-stats-mini-curves .intro-count{opacity:0;transition:.25s ease}
 :where(#introSplash) .intro-stats-mini-curves.counting .intro-count{opacity:1}
 @keyframes pgIntro_miniCurve{to{stroke-dashoffset:0}}
-@keyframes pgIntro_miniCurveShimmer{0%{stroke-dashoffset:1.4}100%{stroke-dashoffset:-.1}}
+@keyframes pgIntro_miniCurveShimmer{0%{stroke-dashoffset:1.4}100%{stroke-dashoffset:0}}
 :where(#introSplash) .subscription-section{padding-top:18px!important}
 :where(#introSplash) .subscription-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:1180px;margin:0 auto;transform:translateZ(0);-webkit-transform:translateZ(0)}
 :where(#introSplash) .subscription-card{position:relative;border:1px solid #e3e4e5;border-radius:20px;background:#fff;padding:20px;text-align:left;box-shadow:0 12px 30px rgba(15,23,42,.06);transform:translateZ(0);-webkit-transform:translateZ(0);backface-visibility:hidden;-webkit-backface-visibility:hidden}
@@ -2487,7 +2505,7 @@ div#introSplash.is-mobile-device .story-flow-line path{animation:pgIntro_storyFl
 div#introSplash.is-mobile-device .story-flow-node{animation:pgIntro_storyFlowFloat 4.8s ease-in-out infinite!important}
 div#introSplash.is-mobile-device .story-flow-tracer{animation:pgIntro_storyFlowTravel 4.4s cubic-bezier(.45,0,.2,1) infinite!important}
 div#introSplash.is-mobile-device,div#introSplash.is-mobile-device *{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
-div#introSplash.is-mobile-device .intro-mini-curve path.curve-track{stroke-dashoffset:0!important}
+div#introSplash.is-mobile-device .intro-mini-curve path.curve-track{animation:pgIntro_miniCurve .9s ease forwards!important}
 div#introSplash.is-mobile-device .intro-mini-curve path.curve-shimmer{opacity:1!important;animation:pgIntro_miniCurveShimmer 2.4s linear infinite!important}
 div#introSplash.is-mobile-device .intro-stat:nth-child(2) .curve-shimmer{animation-delay:.6s!important}
 div#introSplash.is-mobile-device .intro-stat:nth-child(3) .curve-shimmer{animation-delay:1.2s!important}
@@ -2694,8 +2712,8 @@ div#introSplash.is-mobile-device .story-scroll-cue{animation:none!important}
 [data-theme="dark"] .si-stat,[data-theme="dark"] .svc-min,[data-theme="dark"] .custom-comments-hint,[data-theme="dark"] .slider-labels{color:var(--lt-text-dim)!important;background:#0f1a15!important;border-color:#22352b!important}
 [data-theme="dark"] .wallet-modal-close{background:#132019!important;border-color:#22352b!important;color:var(--lt-text-dim)!important}
 [data-theme="dark"] #walletModal .wallet-modal-card{background:#132019!important;border:1px solid #22352b!important;box-shadow:0 30px 80px rgba(0,0,0,.45)!important}
-[data-theme="dark"] #licenseCard{background:linear-gradient(155deg,rgba(17,32,24,.94),rgba(7,17,12,.96))!important;border:1px solid rgba(74,222,128,.2)!important;color:var(--lt-text)!important}
-[data-theme="dark"] #licenseCard input{background:rgba(0,0,0,.35)!important;border-color:#22352b!important;color:var(--lt-text)!important;-webkit-text-fill-color:var(--lt-text)!important}
+[data-theme="dark"] #licenseCard{background:linear-gradient(155deg,rgba(255,255,255,.10),rgba(255,255,255,.03))!important;border:1px solid rgba(255,255,255,.16)!important;color:#f1f5f2!important}
+[data-theme="dark"] #licenseCard input{background:rgba(255,255,255,.05)!important;border-color:rgba(255,255,255,.14)!important;color:#f1f5f2!important;-webkit-text-fill-color:#f1f5f2!important}
 [data-theme="dark"] #licenseError{background:rgba(220,38,38,.14)!important;border:1px solid rgba(220,38,38,.35)!important;color:#fca5a5!important}
 [data-theme="dark"] .auth-mode-switch{background:#0f1a15!important;border-color:#22352b!important}
 [data-theme="dark"] .otp-secondary-btn{background:#132019!important;border-color:#22352b!important;color:var(--lt-text-dim)!important}
@@ -3472,7 +3490,7 @@ html::-webkit-scrollbar,body::-webkit-scrollbar,#introSplash::-webkit-scrollbar{
 <button class="login-back-btn" type="button" onclick="backToIntro()"><span class="login-back-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/><path d="M9 12h10"/></svg></span><span>Back</span></button>
 <div class="login-brand">
   <span class="login-brand-icon" aria-hidden="true"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="28" fill="#ef4444"/><path d="M32 6v52M8 32h48M13 18l38 28M51 18L13 46M19 10l26 44M45 10L19 54" stroke="#111827" stroke-width="2.2" stroke-linecap="round"/><path d="M18 25c5-6 10-7 14-4-3 7-8 11-14 12-2-3-2-5 0-8Zm28 0c-5-6-10-7-14-4 3 7 8 11 14 12 2-3 2-5 0-8Z" fill="#fff"/></svg></span>
-  <span>ApprovedSMM</span>
+  <span class="login-brand-text" data-text="ApprovedSMM">ApprovedSMM</span>
 </div>
 <div class="login-heading-wrap">
   <div class="login-eyebrow"><span class="login-mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 5 3 8 7 10 4-2 7-5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><span>Secure account access</span></div>
