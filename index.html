@@ -4189,7 +4189,7 @@ if (orders) {
 <button onclick="document.getElementById('desktopModeWarnModal').style.display='none'" style="width:100%;padding:10px;border:none;border-radius:9px;background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff;font-weight:800;font-size:13px;cursor:pointer">OK</button>
 </div>
 </div>
-<script>(function(){function checkDesktopMode(){var isTouch=('ontouchstart' in window)||navigator.maxTouchPoints>0;var physicalWidth=window.screen&&window.screen.width?window.screen.width:0;var viewportWidth=window.innerWidth;if(isTouch&&physicalWidth&&physicalWidth<600&&viewportWidth>850){var m=document.getElementById('desktopModeWarnModal');if(m)m.style.display='flex'}}window.addEventListener('load',function(){setTimeout(checkDesktopMode,400)})})()</script>
+<script>(function(){function checkDesktopMode(){try{var isTouchDevice=(window.matchMedia&&(matchMedia('(pointer:coarse)').matches||matchMedia('(hover:none)').matches))||('ontouchstart' in window)||navigator.maxTouchPoints>0;var viewportWidth=window.innerWidth;if(isTouchDevice&&viewportWidth>820){var m=document.getElementById('desktopModeWarnModal');if(m)m.style.display='flex'}}catch(e){}}window.addEventListener('load',function(){setTimeout(checkDesktopMode,400)});window.addEventListener('resize',function(){setTimeout(checkDesktopMode,300)})})()</script>
 <script>window.addEventListener("load",()=>{setTimeout(()=>{try{handlePaymentReturnFlow()}catch(e){}},350)})</script>
 </body>
 </html>
