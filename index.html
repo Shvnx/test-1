@@ -2476,6 +2476,10 @@ div#introSplash.is-mobile-device .card-inner-animation{display:block!important}
 div#introSplash.is-mobile-device .card-inner-animation .blob-a{animation:pgIntro_innerBlobA var(--glass-dur-a,7.8s) ease-in-out infinite alternate!important}
 div#introSplash.is-mobile-device .card-inner-animation .blob-b{animation:pgIntro_innerBlobB var(--glass-dur-b,9.2s) cubic-bezier(.45,0,.2,1) infinite alternate!important}
 div#introSplash.is-mobile-device .subscription-card::after{animation:pgIntro_edPlanOrb 6s ease-in-out infinite!important}
+div#introSplash.is-mobile-device .story-flow-visual{opacity:1!important;filter:none!important}
+div#introSplash.is-mobile-device .story-flow-line path{animation:pgIntro_storyFlowDash 8s linear infinite!important}
+div#introSplash.is-mobile-device .story-flow-node{animation:pgIntro_storyFlowFloat 4.8s ease-in-out infinite!important}
+div#introSplash.is-mobile-device .story-flow-tracer{animation:pgIntro_storyFlowTravel 4.4s cubic-bezier(.45,0,.2,1) infinite!important}
 div#introSplash.is-mobile-device,div#introSplash.is-mobile-device *{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
 div#introSplash.is-mobile-device .intro-mini-curve path{stroke-dashoffset:0!important}
 div#introSplash.is-mobile-device .hero-copy-v21 .intro-h1{font-size:clamp(24px,7.6vw,34px)!important;line-height:1.18!important;letter-spacing:-.4px!important;white-space:normal!important}
@@ -2738,6 +2742,9 @@ div#introSplash.is-mobile-device .story-scroll-cue{animation:none!important}
 [data-theme="dark"] .elite-legend-state{background:radial-gradient(circle at 50% 25%,rgba(250,204,21,.10),transparent 42%),linear-gradient(160deg,#1d190d,#141107)!important;border-color:#5f4a17!important}
 [data-theme="dark"] .elite-legend-title{color:#fde68a!important}
 [data-theme="dark"] .elite-legend-copy{color:#c6b67e!important}
+
+html,body,#introSplash{scrollbar-width:none;-ms-overflow-style:none}
+html::-webkit-scrollbar,body::-webkit-scrollbar,#introSplash::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
 </style>
 </head>
 <body>
